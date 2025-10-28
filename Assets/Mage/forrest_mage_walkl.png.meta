@@ -1,0 +1,346 @@
+fileFormatVersion: 2
+guid: 3a00dcef44049f544845073cc9a437fb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1687050240506006382
+    second: forrest_mage_walkl_0
+  - first:
+      213: -4255331974591686605
+    second: forrest_mage_walkl_1
+  - first:
+      213: -1588869232577362209
+    second: forrest_mage_walkl_2
+  - first:
+      213: -5545157909715579731
+    second: forrest_mage_walkl_3
+  - first:
+      213: 2413638523045063914
+    second: forrest_mage_walkl_4
+  - first:
+      213: -7245659640828795997
+    second: forrest_mage_walkl_5
+  - first:
+      213: 7488245501386634519
+    second: forrest_mage_walkl_6
+  - first:
+      213: -8543486928756392467
+    second: forrest_mage_walkl_7
+  - first:
+      213: -5741448308402043027
+    second: forrest_mage_walkl_8
+  - first:
+      213: -3203416684170866299
+    second: forrest_mage_walkl_9
+  - first:
+      213: -5113340162892556588
+    second: forrest_mage_walkl_10
+  - first:
+      213: -4427679869773776396
+    second: forrest_mage_walkl_11
+  - first:
+      213: -2630286531146011248
+    second: forrest_mage_walkl_12
+  - first:
+      213: 7206365227234047115
+    second: forrest_mage_walkl_13
+  - first:
+      213: 4518753063659979838
+    second: forrest_mage_walkl_14
+  - first:
+      213: -5121836634867172958
+    second: forrest_mage_walkl_15
+  - first:
+      213: 4933861512340782862
+    second: forrest_mage_walkl_16
+  - first:
+      213: -18282233380713024
+    second: forrest_mage_walkl_17
+  - first:
+      213: -6629449412813990616
+    second: forrest_mage_walkl_18
+  - first:
+      213: 3377748496324374112
+    second: forrest_mage_walkl_19
+  - first:
+      213: 347545311515902887
+    second: forrest_mage_walkl_20
+  - first:
+      213: 4691715014978282479
+    second: forrest_mage_walkl_21
+  - first:
+      213: -2486239914700952189
+    second: forrest_mage_walkl_22
+  - first:
+      213: 8613770599659263492
+    second: forrest_mage_walkl_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: forrest_mage_walkl_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b099f514b996710800000000000000
+      internalID: 1687050240506006382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forrest_mage_walkl_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 338d9156d1602f4c0800000000000000
+      internalID: -4255331974591686605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forrest_mage_walkl_2
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd6cda5e9d333f9e0800000000000000
+      internalID: -1588869232577362209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forrest_mage_walkl_3
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dac84f7b244ab03b0800000000000000
+      internalID: -5545157909715579731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forrest_mage_walkl_4
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aecac4ed277fe7120800000000000000
+      internalID: 2413638523045063914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forrest_mage_walkl_5
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 51
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a3e30122fe327b90800000000000000
+      internalID: -7245659640828795997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 94eb4c2eb313676459ffc81ceed89f68
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      forrest_mage_walkl_0: 1687050240506006382
+      forrest_mage_walkl_1: -4255331974591686605
+      forrest_mage_walkl_10: -5113340162892556588
+      forrest_mage_walkl_11: -4427679869773776396
+      forrest_mage_walkl_12: -2630286531146011248
+      forrest_mage_walkl_13: 7206365227234047115
+      forrest_mage_walkl_14: 4518753063659979838
+      forrest_mage_walkl_15: -5121836634867172958
+      forrest_mage_walkl_16: 4933861512340782862
+      forrest_mage_walkl_17: -18282233380713024
+      forrest_mage_walkl_18: -6629449412813990616
+      forrest_mage_walkl_19: 3377748496324374112
+      forrest_mage_walkl_2: -1588869232577362209
+      forrest_mage_walkl_20: 347545311515902887
+      forrest_mage_walkl_21: 4691715014978282479
+      forrest_mage_walkl_22: -2486239914700952189
+      forrest_mage_walkl_23: 8613770599659263492
+      forrest_mage_walkl_24: -1840297101
+      forrest_mage_walkl_3: -5545157909715579731
+      forrest_mage_walkl_4: 2413638523045063914
+      forrest_mage_walkl_5: -7245659640828795997
+      forrest_mage_walkl_6: 7488245501386634519
+      forrest_mage_walkl_7: -8543486928756392467
+      forrest_mage_walkl_8: -5741448308402043027
+      forrest_mage_walkl_9: -3203416684170866299
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
