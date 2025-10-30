@@ -8,8 +8,9 @@ public class Mage : MonoBehaviour
     public int teleportTime = 5;
 
     public Player player;
-
-    public float direction;
+    
+    public string dialogueKey = "Mage";
+    public GameObject dialogueBoxPrefab;
     
     void Start()
     {
@@ -18,20 +19,28 @@ public class Mage : MonoBehaviour
     }
     void Update()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, new Vector2(direction, 0), 7f,
-            LayerMask.GetMask("Player"));
+        float directionToPlayer = player.transform.position.x - transform.position.x;
 
-        direction = player.transform.position.x;
-
-        if (direction > 0)
+        // Control Facing Direction
+        if (directionToPlayer > 0.1f) // Player is to the right
         {
+            // Face Right
             animator.SetInteger("Direction", 1);
         }
-        else
+        else if (directionToPlayer < -0.1f) // Player is to the left
         {
-            animator.SetInteger("Direction", 0);
+            // Face Left
+            animator.SetInteger("Direction", -1);
         }
 
+        // Raycast Logic
+        RaycastHit2D hit = Physics2D.Raycast(
+            transform.position, 
+            new Vector2(Mathf.Sign(directionToPlayer), 0),
+            7f,
+            LayerMask.GetMask("Player")
+        );
+        
         if (hit.collider != null && Input.GetKeyDown(KeyCode.E))
         {
             GiveMission();
@@ -43,11 +52,26 @@ public class Mage : MonoBehaviour
 
     private void GiveMission()
     {
-        
+        TriggerDialogue();
     }
 
     IEnumerator WaitCoroutine(int time)
     {
         yield return new WaitForSecondsRealtime(time);
+    }
+    
+    public void TriggerDialogue()
+    {
+        // 1. Get the random line using the key
+        string line = DialogueManager.Instance.GetRandomLine(dialogueKey);
+
+        // 2. Instantiate and Initialize the Dialogue Box
+        GameObject dialogueBoxInstance = Instantiate(dialogueBoxPrefab, transform.position, Quaternion.identity);
+        DialogueBoxController controller = dialogueBoxInstance.GetComponent<DialogueBoxController>();
+    
+        if (controller != null)
+        { 
+            controller.Initialize(this.transform, line);
+        }
     }
 }
