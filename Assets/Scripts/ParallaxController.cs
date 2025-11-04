@@ -1,3 +1,6 @@
+// DEPRECATED: NOT USING THIS FILE BUT KEPT AS A LEARNING RESOURCE.
+
+
 using UnityEngine;
 
 public class ParallaxController : MonoBehaviour

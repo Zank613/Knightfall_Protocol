@@ -6,6 +6,8 @@ public class DialogueManager : MonoBehaviour
     public static DialogueManager Instance; 
     
     private Dictionary<string, List<string>> dialogueData = new Dictionary<string, List<string>>();
+    
+    public GameObject dialogueBoxPrefab;
 
     void Awake()
     {
@@ -49,5 +51,31 @@ public class DialogueManager : MonoBehaviour
         }
         
         return "ERROR: Dialogue not found."; 
+    }
+    
+    public static void SimplePopUp(Transform entity, string dialogueKey)
+    {
+        if (Instance == null || Instance.dialogueBoxPrefab == null)
+        {
+            Debug.LogError("DialogueManager not initialized or Prefab is missing! Cannot display dialogue.");
+            return;
+        }
+    
+        string line = Instance.GetRandomLine(dialogueKey);
+
+        if (string.IsNullOrEmpty(line) || line.Equals("ERROR: Dialogue not found."))
+        {
+            Debug.LogError($"Dialogue key '{dialogueKey}' failed to return a line.");
+            return;
+        }
+
+        GameObject dialogueBoxInstance = Instantiate(Instance.dialogueBoxPrefab, entity.position, Quaternion.identity);
+
+        DialogueBoxController controller = dialogueBoxInstance.GetComponentInChildren<DialogueBoxController>();
+    
+        if (controller != null)
+        {
+            controller.Initialize(entity, line);
+        }
     }
 }

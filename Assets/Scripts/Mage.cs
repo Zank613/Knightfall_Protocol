@@ -6,11 +6,10 @@ public class Mage : MonoBehaviour
     private Rigidbody2D rb;
     private Animator animator;
     public int teleportTime = 5;
-
+    public bool isTeleporting = false;
     public Player player;
     
     public string dialogueKey = "Mage";
-    public GameObject dialogueBoxPrefab;
     
     void Start()
     {
@@ -44,9 +43,15 @@ public class Mage : MonoBehaviour
         if (hit.collider != null && Input.GetKeyDown(KeyCode.E))
         {
             GiveMission();
-            StartCoroutine(WaitCoroutine(teleportTime));
-            animator.SetTrigger("Teleport");
-            Destroy(this.gameObject);
+            
+            isTeleporting = true;
+            
+            StartCoroutine(WaitAndDestroy(teleportTime));
+
+            if (isTeleporting)
+            {
+                animator.SetTrigger("Teleport");   
+            }
         }
     }
 
@@ -54,24 +59,16 @@ public class Mage : MonoBehaviour
     {
         TriggerDialogue();
     }
-
-    IEnumerator WaitCoroutine(int time)
+    
+    IEnumerator WaitAndDestroy(int time) 
     {
         yield return new WaitForSecondsRealtime(time);
+        
+        Destroy(this.gameObject); 
     }
     
     public void TriggerDialogue()
     {
-        // 1. Get the random line using the key
-        string line = DialogueManager.Instance.GetRandomLine(dialogueKey);
-
-        // 2. Instantiate and Initialize the Dialogue Box
-        GameObject dialogueBoxInstance = Instantiate(dialogueBoxPrefab, transform.position, Quaternion.identity);
-        DialogueBoxController controller = dialogueBoxInstance.GetComponent<DialogueBoxController>();
-    
-        if (controller != null)
-        { 
-            controller.Initialize(this.transform, line);
-        }
+        DialogueManager.SimplePopUp(this.transform, dialogueKey);
     }
 }
