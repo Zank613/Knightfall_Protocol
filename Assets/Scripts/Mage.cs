@@ -5,11 +5,11 @@ public class Mage : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Animator animator;
-    public int teleportTime = 5;
-    public bool isTeleporting = false;
-    public Player player;
     
+    public Player player;
     public string dialogueKey = "Mage";
+
+    private bool isInteracting = false;
     
     void Start()
     {
@@ -40,18 +40,11 @@ public class Mage : MonoBehaviour
             LayerMask.GetMask("Player")
         );
         
-        if (hit.collider != null && Input.GetKeyDown(KeyCode.E))
+        if (hit.collider != null && Input.GetKeyDown(KeyCode.E) && !isInteracting)
         {
+            isInteracting = true;
+            
             GiveMission();
-            
-            isTeleporting = true;
-            
-            StartCoroutine(WaitAndDestroy(teleportTime));
-
-            if (isTeleporting)
-            {
-                animator.SetTrigger("Teleport");   
-            }
         }
     }
 
@@ -60,15 +53,18 @@ public class Mage : MonoBehaviour
         TriggerDialogue();
     }
     
-    IEnumerator WaitAndDestroy(int time) 
-    {
-        yield return new WaitForSecondsRealtime(time);
-        
-        Destroy(this.gameObject); 
-    }
-    
     public void TriggerDialogue()
     {
-        DialogueManager.SimplePopUp(this.transform, dialogueKey);
+        DialogueManager.SimplePopUp(this.transform, dialogueKey, StartTeleport);
+    }
+
+    public void StartTeleport()
+    {
+        animator.SetTrigger("Teleport");
+    }
+
+    public void DestroyMage()
+    {
+        Destroy(this.gameObject);
     }
 }

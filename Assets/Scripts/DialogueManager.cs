@@ -4,10 +4,9 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance; 
-    
     private Dictionary<string, List<string>> dialogueData = new Dictionary<string, List<string>>();
     
-    public GameObject dialogueBoxPrefab;
+    public GameObject dialogueBoxPrefab; 
 
     void Awake()
     {
@@ -17,65 +16,42 @@ public class DialogueManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             LoadAllDialogue();
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        else Destroy(gameObject);
     }
-    
+
     private void LoadAllDialogue()
     {
         TextAsset[] textAssets = Resources.LoadAll<TextAsset>(""); 
-
         foreach (TextAsset ta in textAssets)
         {
             List<string> lines = new List<string>(ta.text.Split(new char[] { '\n', '\r' }, System.StringSplitOptions.RemoveEmptyEntries));
-            
             dialogueData.Add(ta.name, lines);
-            Debug.Log($"Loaded dialogue for: {ta.name} with {lines.Count} lines.");
         }
     }
 
-    // Public method for characters to request a random line
     public string GetRandomLine(string key)
     {
         if (dialogueData.ContainsKey(key))
         {
             List<string> lines = dialogueData[key];
-            if (lines.Count > 0)
-            {
-                // Return a random line from the list
-                int randomIndex = Random.Range(0, lines.Count);
-                return lines[randomIndex];
-            }
+            if (lines.Count > 0) return lines[Random.Range(0, lines.Count)];
         }
-        
         return "ERROR: Dialogue not found."; 
     }
     
-    public static void SimplePopUp(Transform entity, string dialogueKey)
+    public static void SimplePopUp(Transform entity, string dialogueKey, System.Action onComplete)
     {
-        if (Instance == null || Instance.dialogueBoxPrefab == null)
-        {
-            Debug.LogError("DialogueManager not initialized or Prefab is missing! Cannot display dialogue.");
-            return;
-        }
-    
+        if (Instance == null || Instance.dialogueBoxPrefab == null) return;
+        
         string line = Instance.GetRandomLine(dialogueKey);
-
-        if (string.IsNullOrEmpty(line) || line.Equals("ERROR: Dialogue not found."))
-        {
-            Debug.LogError($"Dialogue key '{dialogueKey}' failed to return a line.");
-            return;
-        }
+        if (string.IsNullOrEmpty(line) || line.Contains("ERROR")) return;
 
         GameObject dialogueBoxInstance = Instantiate(Instance.dialogueBoxPrefab, entity.position, Quaternion.identity);
-
         DialogueBoxController controller = dialogueBoxInstance.GetComponentInChildren<DialogueBoxController>();
-    
+        
         if (controller != null)
         {
-            controller.Initialize(entity, line);
+            controller.Initialize(entity, line, onComplete);
         }
     }
 }
