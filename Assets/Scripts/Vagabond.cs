@@ -7,7 +7,7 @@ public class Vagabond : MonoBehaviour
     public float moveSpeed = 2f;
     public float attackRange = 1.5f;
     public float attackCooldown = 3f;
-    
+
     [Header("Dialogue Keys")]
     public string introDialogue = "VagabondIntro";
     public string mockeryDialogue = "VagabondMockery";
@@ -15,27 +15,28 @@ public class Vagabond : MonoBehaviour
 
     [Header("References")]
     public Transform player;
-    
-    
+
     private Animator animator;
     private Rigidbody2D rb;
-    
+
     private bool isAttacking = false;
     private bool hasTriggeredIntro = false;
     private float nextAttackTime = 0f;
+    
+    private bool isInCutscene = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        
+
         if (player == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
         }
     }
-
+    
     void Update()
     {
         if (player == null) return;
@@ -46,49 +47,72 @@ public class Vagabond : MonoBehaviour
         if (!hasTriggeredIntro && distanceToPlayer < 8f)
         {
             hasTriggeredIntro = true;
-            DialogueManager.SimplePopUp(transform, introDialogue, null);
+            if (CinematicController.Instance != null)
+            {
+                CinematicController.Instance.StartVagabondIntro(this); 
+            }
         }
+        
+        // 2. Stop all logic if in a cutscene
+        if (isInCutscene)
+        {
+            rb.linearVelocity = Vector2.zero;
+            animator.SetBool("IsWalking", false);
+            return;
+        } 
 
-        // 2. Chase and Attack Logic
-        if (distanceToPlayer > attackRange && !isAttacking)
+        // 3. Chase and Attack Logic
+        if (isAttacking)
         {
-            ChasePlayer();
-        }
-        else if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
-        {
-            StartCoroutine(PerformAttack());
+            // This forces him to stop moving.
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+            animator.SetBool("IsWalking", false);
         }
         else
         {
-            // Idle state between attacks
-            animator.SetBool("IsWalking", false);
+            if (distanceToPlayer > attackRange)
+            {
+                ChasePlayer();
+            }
+            else if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
+            {
+                // This will set isAttacking = true
+                StartCoroutine(PerformAttack());
+            }
+            else if (distanceToPlayer <= attackRange)
+            {
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                animator.SetBool("IsWalking", false);
+            }
         }
     }
-
+    
     private void ChasePlayer()
     {
         animator.SetBool("IsWalking", true);
-    
-        // Determine direction
+
         float direction = Mathf.Sign(player.position.x - transform.position.x);
-    
-        // Move towards player
-        transform.position += new Vector3(direction * moveSpeed * Time.deltaTime, 0, 0);
-    
+        rb.linearVelocity = new Vector2(direction * moveSpeed, rb.linearVelocity.y);
+        
         Vector3 currentScale = transform.localScale;
-    
         currentScale.x = Mathf.Abs(currentScale.x) * direction;
-    
         transform.localScale = currentScale;
     }
-
+    
     IEnumerator PerformAttack()
     {
         isAttacking = true;
-        animator.SetTrigger("Attack"); 
+        nextAttackTime = Time.time + attackCooldown;
+        animator.SetTrigger("Attack");
+        
+        // Animation events will handle damage and set isAttacking = false
+        yield return null; 
+    }
     
-        yield return new WaitForSeconds(0.5f);
-
+    public void DealDamageToPlayer()
+    {
+        if (player == null) return;
+                    
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             Player playerScript = player.GetComponent<Player>();
@@ -97,45 +121,33 @@ public class Vagabond : MonoBehaviour
                 playerScript.TakeDamage(5); // Deal 5 damage per hit
             }
         }
-
-        nextAttackTime = Time.time + attackCooldown;
+    }
+    
+    public void OnAttackAnimationComplete()
+    {
         isAttacking = false;
     }
-    
+
     public void TakeDamage(int damage)
     {
-        // He takes NO damage. Instead, he mocks the player.
         DialogueManager.SimplePopUp(transform, mockeryDialogue, null);
     }
-
-    private void TriggerPrologueEnding()
+    
+    public void PauseForCutscene()
     {
-        // 1. Disable further Vagabond action
-        this.enabled = false; 
+        isInCutscene = true;
         animator.SetBool("IsWalking", false);
-        
-        DialogueManager.SimplePopUp(transform, finisherDialogue, () => {
-            
-            Debug.Log("PROLOGUE ENDED! Transition to Cyberpunk scene here.");
-            
-            // TODO: SceneManager.LoadScene("CyberpunkLevel1");
-        });
-        
+        rb.linearVelocity = Vector2.zero; // Stop him from sliding
+    }
+    
+    public void UnpauseFromCutscene()
+    {
+        isInCutscene = false;
     }
 
-    IEnumerator Wait(float seconds)
-    {
-        yield return new WaitForSecondsRealtime(seconds);
-    }
-    
-    /*
-    
-    // Visualizing the attack range in the Editor
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
-    
-    */
 }

@@ -63,8 +63,8 @@ public class Mage : MonoBehaviour
         animator.SetTrigger("Teleport");
     }
 
-    public void DestroyMage()
+    public void HideMage()
     {
-        Destroy(this.gameObject);
+        gameObject.SetActive(false);
     }
 }

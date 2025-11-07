@@ -10,7 +10,7 @@ public class CinematicController : MonoBehaviour
     [Header("Cutscene Objects")]
     public GameObject player;
     public GameObject vagabond;
-    public GameObject druid;
+    public GameObject mage;
     public Camera mainCamera;
 
     [Header("Cutscene Positions")]
@@ -50,11 +50,11 @@ public class CinematicController : MonoBehaviour
         
         // 2. Despawn Vagabond, Spawn Druid
         vagabond.SetActive(false);
-        druid.SetActive(true);
+        mage.SetActive(true);
 
         // 3. Move Player and Druid to their new cutscene spots
         player.transform.position = playerCutscenePos.position;
-        druid.transform.position = druidCutscenePos.position;
+        mage.transform.position = druidCutscenePos.position;
         
         // 4. Reposition Camera
         Vector3 centerPoint = (playerCutscenePos.position + druidCutscenePos.position) / 2;
@@ -65,13 +65,41 @@ public class CinematicController : MonoBehaviour
         vignetteImage.gameObject.SetActive(true);
         
         // 6. Start the final dialogue immediately
-        DialogueManager.SimplePopUp(druid.transform, druidDialogueKey, OnPrologueDialogueComplete);
+        DialogueManager.SimplePopUp(mage.transform, druidDialogueKey, OnPrologueDialogueComplete);
     }
     
     void OnPrologueDialogueComplete()
     {
         vignetteImage.gameObject.SetActive(false);
         SceneManager.LoadScene("Cyberpunk");
+    }
+    
+    public void StartVagabondIntro(Vagabond vagabondScript)
+    {
+        // 1. Pause Player
+        Player playerScript = player.GetComponent<Player>();
+        playerScript.enabled = false; // Stops player input
+        playerScript.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero; // Stops sliding
+        playerScript.GetComponent<Animator>().SetFloat("Move", 0); // Stops walk anim
+
+        // 2. Pause Vagabond
+        vagabondScript.PauseForCutscene();
+
+        // 3. Show Vignette
+        vignetteImage.gameObject.SetActive(true);
+
+        // 4. Start Dialogue
+        DialogueManager.SimplePopUp(vagabondScript.transform, vagabondScript.introDialogue, () => {
+            
+            // 5. Hide Vignette
+            vignetteImage.gameObject.SetActive(false);
+        
+            // 6. Unpause Player
+            playerScript.enabled = true;
+        
+            // 7. Unpause Vagabond
+            vagabondScript.UnpauseFromCutscene();
+        });
     }
 
 }

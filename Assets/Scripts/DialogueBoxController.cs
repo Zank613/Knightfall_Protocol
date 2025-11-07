@@ -23,7 +23,7 @@ public class DialogueBoxController : MonoBehaviour
         if (dialogueText == null) dialogueText = GetComponentInChildren<TextMesh>();
         if (dialogueText == null)
         {
-            Debug.LogError("FATAL ERROR: DialogueBox prefab is missing the TextMesh component!", gameObject);
+            Debug.LogError("ERROR: DialogueBox prefab is missing the TextMesh component!", gameObject);
             Destroy(gameObject); 
         }
     }
