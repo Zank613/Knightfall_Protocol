@@ -7,6 +7,7 @@ TagManager:
   - Mage
   - DialogueBox
   - Boss
+  - BossTrigger
   layers:
   - Default
   - TransparentFX

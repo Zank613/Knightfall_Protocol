@@ -1,8 +1,16 @@
 using System;
+using TreeEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+
+    [Header("Health")] 
+    public int currentHealth = 15;
+    public bool isPrologue = true;
+
+    private bool isDead = false;
+    
     public float speed;
     public float jumpHeight;
 
@@ -31,6 +39,9 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        if (isDead && lives == 0) return;
+        // TODO: Add game over screen.
+        
         // Get movement input
         float move = Input.GetAxis("Horizontal");
         Vector2 position = transform.position;
@@ -59,6 +70,14 @@ public class Player : MonoBehaviour
         jumping = false;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BossTrigger"))
+        {
+            
+        }
+    }
+
     private void UpdateAnimation(float move)
     {
         animator.SetFloat("Move", move);
@@ -84,5 +103,40 @@ public class Player : MonoBehaviour
         }
 
         isAttacking = true;
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDead) return;
+
+        currentHealth -= damage;
+        Debug.Log($"Player took {damage} damage. {currentHealth} HP remaining.");
+
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        isDead = true;
+
+        if (isPrologue)
+        {
+            Debug.Log("Player has died in prologue. Starting cutscene.");
+
+            if (CinematicController.Instance != null)
+            {
+                CinematicController.Instance.StartPrologueEnding();
+            }
+
+            this.enabled = false;
+        }
+        else
+        {
+            Debug.Log("Player has died in the Future. Starting Knightfall Protocol.");
+        }
     }
 }

@@ -6,7 +6,7 @@ public class Vagabond : MonoBehaviour
     [Header("Settings")]
     public float moveSpeed = 2f;
     public float attackRange = 1.5f;
-    public float attackCooldown = 2f;
+    public float attackCooldown = 3f;
     
     [Header("Dialogue Keys")]
     public string introDialogue = "VagabondIntro";
@@ -26,8 +26,8 @@ public class Vagabond : MonoBehaviour
 
     void Start()
     {
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         
         if (player == null)
         {
@@ -68,33 +68,36 @@ public class Vagabond : MonoBehaviour
     private void ChasePlayer()
     {
         animator.SetBool("IsWalking", true);
-        
+    
         // Determine direction
         float direction = Mathf.Sign(player.position.x - transform.position.x);
-        
+    
         // Move towards player
         transform.position += new Vector3(direction * moveSpeed * Time.deltaTime, 0, 0);
-        
-        // Face the player
-        transform.localScale = new Vector3(direction, 1, 1);
+    
+        Vector3 currentScale = transform.localScale;
+    
+        currentScale.x = Mathf.Abs(currentScale.x) * direction;
+    
+        transform.localScale = currentScale;
     }
 
     IEnumerator PerformAttack()
     {
         isAttacking = true;
-        animator.SetBool("IsWalking", false);
-        animator.SetTrigger("Attack");
-        
-        // Wait a moment for the animation to reach the "hit" frame
-        yield return new WaitForSeconds(0.5f); 
+        animator.SetTrigger("Attack"); 
+    
+        yield return new WaitForSeconds(0.5f);
 
-        // Check if player is still in range to be hit
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            TriggerPrologueEnding();
+            Player playerScript = player.GetComponent<Player>();
+            if (playerScript != null)
+            {
+                playerScript.TakeDamage(5); // Deal 5 damage per hit
+            }
         }
 
-        // Cooldown
         nextAttackTime = Time.time + attackCooldown;
         isAttacking = false;
     }
@@ -118,6 +121,11 @@ public class Vagabond : MonoBehaviour
             // TODO: SceneManager.LoadScene("CyberpunkLevel1");
         });
         
+    }
+
+    IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSecondsRealtime(seconds);
     }
     
     /*
