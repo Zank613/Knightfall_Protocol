@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: a54a98fbf10b6f0479a78d36268cbc50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2514397544252751183
+    second: purplecity_0
+  - first:
+      213: 6390132966757344904
+    second: purplecity_1
+  - first:
+      213: 4636033222958949310
+    second: purplecity_2
+  - first:
+      213: -1323519647781149071
+    second: purplecity_3
+  - first:
+      213: -2152055240839343696
+    second: purplecity_4
+  - first:
+      213: -3072545734930338388
+    second: purplecity_5
+  - first:
+      213: -990431576183596224
+    second: purplecity_6
+  - first:
+      213: -4141850346702475667
+    second: purplecity_7
+  - first:
+      213: -4022929989084660042
+    second: purplecity_8
+  - first:
+      213: 8821128966008909311
+    second: purplecity_9
+  - first:
+      213: 5384430834591683862
+    second: purplecity_10
+  - first:
+      213: -5349569941195769458
+    second: purplecity_11
+  - first:
+      213: 8925341933203325741
+    second: purplecity_12
+  - first:
+      213: 5191438391229553847
+    second: purplecity_13
+  - first:
+      213: -1494754610796887218
+    second: purplecity_14
+  - first:
+      213: -4827401567717445579
+    second: purplecity_15
+  - first:
+      213: -336800574337182691
+    second: purplecity_16
+  - first:
+      213: 5659652802817733480
+    second: purplecity_17
+  - first:
+      213: -4495692204350110688
+    second: purplecity_18
+  - first:
+      213: 5028839245214360323
+    second: purplecity_19
+  - first:
+      213: 6672052848535580615
+    second: purplecity_20
+  - first:
+      213: 2171387223877674701
+    second: purplecity_21
+  - first:
+      213: -6671182610301806893
+    second: purplecity_22
+  - first:
+      213: 3383038030849576327
+    second: purplecity_23
+  - first:
+      213: 5380941778000402231
+    second: purplecity_24
+  - first:
+      213: -3437688872183187609
+    second: purplecity_25
+  - first:
+      213: -6685550423305780347
+    second: purplecity_26
+  - first:
+      213: 6385043535387850013
+    second: purplecity_27
+  - first:
+      213: 315369627526546626
+    second: purplecity_28
+  - first:
+      213: -2214279036596232498
+    second: purplecity_29
+  - first:
+      213: -2057517997964248002
+    second: purplecity_30
+  - first:
+      213: -8100679241983016233
+    second: purplecity_31
+  - first:
+      213: -1441894714883565300
+    second: purplecity_32
+  - first:
+      213: 1300816752304941807
+    second: purplecity_33
+  - first:
+      213: -3885411715762953400
+    second: purplecity_34
+  - first:
+      213: 2795010913215325455
+    second: purplecity_35
+  - first:
+      213: 2243126667236963077
+    second: purplecity_36
+  - first:
+      213: 2251641831000822105
+    second: purplecity_37
+  - first:
+      213: -8859223465039362564
+    second: purplecity_38
+  - first:
+      213: -256155607211871865
+    second: purplecity_39
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: purplecity_0
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 437
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b243be51c01b1dd0800000000000000
+      internalID: -2514397544252751183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 437
+        width: 45
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 886a51fa3105ea850800000000000000
+      internalID: 6390132966757344904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 437
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3a06d47af765040800000000000000
+      internalID: 4636033222958949310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_3
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 437
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17621c484e9e1ade0800000000000000
+      internalID: -1323519647781149071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_4
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 437
+        width: 33
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1d0c8192d5222e0800000000000000
+      internalID: -2152055240839343696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_5
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 437
+        width: 30
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cade551eeef1c55d0800000000000000
+      internalID: -3072545734930338388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_6
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 437
+        width: 54
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b1f3f9ab74142f0800000000000000
+      internalID: -990431576183596224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_7
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 437
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e68fbdd013586c0800000000000000
+      internalID: -4141850346702475667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_8
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 437
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6beb7544d7eab28c0800000000000000
+      internalID: -4022929989084660042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_9
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 438
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdaed8ee02fa6a70800000000000000
+      internalID: 8821128966008909311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_10
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 437
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6155f7de05759ba40800000000000000
+      internalID: 5384430834591683862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_11
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 437
+        width: 68
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e893be15b7282c5b0800000000000000
+      internalID: -5349569941195769458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_12
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 437
+        width: 70
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d238b73233f2ddb70800000000000000
+      internalID: 8925341933203325741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_13
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 437
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc109e16b1bb0840800000000000000
+      internalID: 5191438391229553847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_14
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 332
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e43031dd990914be0800000000000000
+      internalID: -1494754610796887218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_15
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 333
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 530b900d9df910db0800000000000000
+      internalID: -4827401567717445579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 332
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d141c7e79a1735bf0800000000000000
+      internalID: -336800574337182691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_17
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 332
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863beffec302b8e40800000000000000
+      internalID: 5659652802817733480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_18
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 257
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 024083462c71c91c0800000000000000
+      internalID: -4495692204350110688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_19
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 257
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 303ab8b46a60ac540800000000000000
+      internalID: 5028839245214360323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_20
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 270
+        width: 22
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cfa89737b4e79c50800000000000000
+      internalID: 6672052848535580615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_21
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 270
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc6ec05fc21522e10800000000000000
+      internalID: 2171387223877674701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_22
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 299
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d69239e2c23b63a0800000000000000
+      internalID: -6671182610301806893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_23
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 295
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78d0d6a3a27f2fe20800000000000000
+      internalID: 3383038030849576327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_24
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 270
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737d5c2a902fcaa40800000000000000
+      internalID: 5380941778000402231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_25
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 270
+        width: 24
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76735353f20ea40d0800000000000000
+      internalID: -3437688872183187609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_26
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 270
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58385e2cf472833a0800000000000000
+      internalID: -6685550423305780347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_27
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 270
+        width: 23
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d15723a144b3c9850800000000000000
+      internalID: 6385043535387850013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_28
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 281
+        width: 18
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c4caad510b606400800000000000000
+      internalID: 315369627526546626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_29
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 270
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece561ea2fc4541e0800000000000000
+      internalID: -2214279036596232498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_30
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 270
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c3e54384a3273e0800000000000000
+      internalID: -2057517997964248002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_31
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 270
+        width: 45
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d2c83e062b949f80800000000000000
+      internalID: -8100679241983016233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_32
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 270
+        width: 39
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c091ad3756c5dfbe0800000000000000
+      internalID: -1441894714883565300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_33
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 270
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fea6307b1fd6d0210800000000000000
+      internalID: 1300816752304941807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_34
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 270
+        width: 19
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843eecb51ae341ac0800000000000000
+      internalID: -3885411715762953400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_35
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 270
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f052a81fd9fd9c620800000000000000
+      internalID: 2795010913215325455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_36
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 270
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5037ddab1df212f10800000000000000
+      internalID: 2243126667236963077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_37
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 250
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 951d63ac0507f3f10800000000000000
+      internalID: 2251641831000822105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_38
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 270
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf5068c5237bd0580800000000000000
+      internalID: -8859223465039362564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purplecity_39
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 179
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78179e815d3f17cf0800000000000000
+      internalID: -256155607211871865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      purplecity_0: -2514397544252751183
+      purplecity_1: 6390132966757344904
+      purplecity_10: 5384430834591683862
+      purplecity_11: -5349569941195769458
+      purplecity_12: 8925341933203325741
+      purplecity_13: 5191438391229553847
+      purplecity_14: -1494754610796887218
+      purplecity_15: -4827401567717445579
+      purplecity_16: -336800574337182691
+      purplecity_17: 5659652802817733480
+      purplecity_18: -4495692204350110688
+      purplecity_19: 5028839245214360323
+      purplecity_2: 4636033222958949310
+      purplecity_20: 6672052848535580615
+      purplecity_21: 2171387223877674701
+      purplecity_22: -6671182610301806893
+      purplecity_23: 3383038030849576327
+      purplecity_24: 5380941778000402231
+      purplecity_25: -3437688872183187609
+      purplecity_26: -6685550423305780347
+      purplecity_27: 6385043535387850013
+      purplecity_28: 315369627526546626
+      purplecity_29: -2214279036596232498
+      purplecity_3: -1323519647781149071
+      purplecity_30: -2057517997964248002
+      purplecity_31: -8100679241983016233
+      purplecity_32: -1441894714883565300
+      purplecity_33: 1300816752304941807
+      purplecity_34: -3885411715762953400
+      purplecity_35: 2795010913215325455
+      purplecity_36: 2243126667236963077
+      purplecity_37: 2251641831000822105
+      purplecity_38: -8859223465039362564
+      purplecity_39: -256155607211871865
+      purplecity_4: -2152055240839343696
+      purplecity_5: -3072545734930338388
+      purplecity_6: -990431576183596224
+      purplecity_7: -4141850346702475667
+      purplecity_8: -4022929989084660042
+      purplecity_9: 8821128966008909311
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
