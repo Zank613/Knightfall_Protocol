@@ -182,6 +182,11 @@ public class Crow : MonoBehaviour
         
         AudioManager.Instance?.PlayEnemyDeath();
         
+        if (EchoManager.Instance != null)
+        {
+            EchoManager.Instance.OnEnemyKilled(gameObject);
+        }
+        
         animator.SetTrigger("Death");
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false; // Disable collider so player can walk through
@@ -194,7 +199,12 @@ public class Crow : MonoBehaviour
                     
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
-            player.GetComponent<Player>().TakeDamage(damage);
+            Player playerScript = player.GetComponent<Player>();
+            if (playerScript != null)
+            {
+                playerScript.RegisterHitByEnemy(gameObject);
+                playerScript.TakeDamage(damage);
+            }
         }
     }
     

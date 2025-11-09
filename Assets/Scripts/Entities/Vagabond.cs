@@ -7,6 +7,7 @@ public class Vagabond : MonoBehaviour
     public float moveSpeed = 2f;
     public float attackRange = 1.5f;
     public float attackCooldown = 3f;
+    public float attackDuration = 1f;
 
     [Header("Dialogue Keys")]
     public string introDialogue = "VagabondIntro";
@@ -22,8 +23,10 @@ public class Vagabond : MonoBehaviour
     private bool isAttacking = false;
     private bool hasTriggeredIntro = false;
     private float nextAttackTime = 0f;
+    private float attackStartTime = 0f; 
     
     private bool isInCutscene = false;
+    private bool isInvincible = true;
 
     void Start()
     {
@@ -59,12 +62,17 @@ public class Vagabond : MonoBehaviour
             rb.linearVelocity = Vector2.zero;
             animator.SetBool("IsWalking", false);
             return;
-        } 
+        }
+        
+        if (isAttacking && Time.time - attackStartTime > attackDuration)
+        {
+            Debug.Log("<color=yellow>Vagabond: Attack timeout, force reset</color>");
+            isAttacking = false;
+        }
 
         // 3. Chase and Attack Logic
         if (isAttacking)
         {
-            // This forces him to stop moving.
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
             animator.SetBool("IsWalking", false);
         }
@@ -76,7 +84,6 @@ public class Vagabond : MonoBehaviour
             }
             else if (distanceToPlayer <= attackRange && Time.time >= nextAttackTime)
             {
-                // This will set isAttacking = true
                 StartCoroutine(PerformAttack());
             }
             else if (distanceToPlayer <= attackRange)
@@ -102,11 +109,31 @@ public class Vagabond : MonoBehaviour
     IEnumerator PerformAttack()
     {
         isAttacking = true;
+        attackStartTime = Time.time;
         nextAttackTime = Time.time + attackCooldown;
+        
+        // Make sure we're facing the player
+        float direction = Mathf.Sign(player.position.x - transform.position.x);
+        Vector3 currentScale = transform.localScale;
+        currentScale.x = Mathf.Abs(currentScale.x) * direction;
+        transform.localScale = currentScale;
+        
+        // Stop moving
+        rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        animator.SetBool("IsWalking", false);
+        
+        // Trigger attack
         animator.SetTrigger("Attack");
         
-        // Animation events will handle damage and set isAttacking = false
-        yield return null; 
+        Debug.Log("<color=cyan>Vagabond: Attack triggered</color>");
+        
+        yield return new WaitForSeconds(attackDuration);
+        
+        if (isAttacking) // If still attacking after timeout
+        {
+            Debug.Log("<color=yellow>Vagabond: Force completing attack (timeout)</color>");
+            isAttacking = false;
+        }
     }
     
     public void DealDamageToPlayer()
@@ -118,7 +145,8 @@ public class Vagabond : MonoBehaviour
             Player playerScript = player.GetComponent<Player>();
             if (playerScript != null)
             {
-                playerScript.TakeDamage(5); // Deal 5 damage per hit
+                playerScript.RegisterHitByEnemy(gameObject);
+                playerScript.TakeDamage(5);
             }
         }
     }
@@ -126,18 +154,28 @@ public class Vagabond : MonoBehaviour
     public void OnAttackAnimationComplete()
     {
         isAttacking = false;
+        Debug.Log("Vagabond: Attack complete");
     }
 
     public void TakeDamage(int damage)
     {
-        DialogueManager.SimplePopUp(transform, mockeryDialogue, null);
+        if (isInvincible)
+        {
+            // Just mock the player
+            DialogueManager.SimplePopUp(transform, mockeryDialogue, null);
+            return;
+        }
+        
+        // Vagabond does not exist in other scenes but fun to keep anyway.
+        Debug.Log($"Vagabond took {damage} damage");
     }
     
     public void PauseForCutscene()
     {
         isInCutscene = true;
+        isAttacking = false;
         animator.SetBool("IsWalking", false);
-        rb.linearVelocity = Vector2.zero; // Stop him from sliding
+        rb.linearVelocity = Vector2.zero;
     }
     
     public void UnpauseFromCutscene()

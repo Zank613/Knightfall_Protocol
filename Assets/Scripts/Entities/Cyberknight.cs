@@ -111,7 +111,7 @@ public class Cyberknight : MonoBehaviour
     {
         animator.SetBool("IsRunning", true);
         
-        // Move towards patrol target (always facing right since sprites face right)
+        // Move towards patrol target
         float direction = Mathf.Sign(patrolTargetPosition.x - transform.position.x);
         FlipToDirection(direction);
         rb.linearVelocity = new Vector2(direction * moveSpeed * 0.5f, rb.linearVelocity.y);
@@ -259,12 +259,11 @@ public class Cyberknight : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         
         // Notify EchoManager that this enemy died
-        /*
         if (EchoManager.Instance != null)
         {
             EchoManager.Instance.OnEnemyKilled(gameObject);
         }
-        */
+        
     }
 
     IEnumerator FlashRedEffect()
@@ -283,6 +282,7 @@ public class Cyberknight : MonoBehaviour
         if (Vector2.Distance(transform.position, player.position) <= attackRange)
         {
             player.GetComponent<Player>().TakeDamage(damage);
+            player.GetComponent<Player>().RegisterHitByEnemy(gameObject);
         }
     }
     

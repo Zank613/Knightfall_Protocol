@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool isPrologue = true;
     
     private bool isDead = false;
+    private GameObject lastEnemyThatHitMe; // Track who killed the Player
     #endregion
 
     #region Movement
@@ -64,7 +65,8 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (isDead || lives <= 0) return;
-        
+
+        // Reset attack state each frame (safety fallback if animation event fails)
         isAttacking = false;
 
         HandleMovement();
@@ -76,10 +78,11 @@ public class Player : MonoBehaviour
     {
         jumping = false;
         
-        AudioManager.Instance?.PlayPlayerLand();
-        
         if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Boss"))
         {
+            // Track which enemy hit us (for death scene)
+            lastEnemyThatHitMe = other.gameObject;
+            
             TakeDamage(5);
         }
     }
@@ -134,8 +137,6 @@ public class Player : MonoBehaviour
             float jumpForce = Mathf.Sqrt(-2 * Physics2D.gravity.y * jumpHeight);
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             jumping = true;
-            
-            AudioManager.Instance?.PlayPlayerJump();
         }
     }
 
@@ -165,8 +166,6 @@ public class Player : MonoBehaviour
         string attackTrigger = animator.GetInteger("Direction") == 1 ? "Attack_Right" : "Attack_Left";
         animator.SetTrigger(attackTrigger);
         isAttacking = true;
-        
-        AudioManager.Instance?.PlayPlayerAttack();
     }
 
     /// <summary>
@@ -225,8 +224,6 @@ public class Player : MonoBehaviour
         currentHealth -= damageAmount;
         Debug.Log($"Player took {damageAmount} damage. {currentHealth} HP remaining.");
         
-        AudioManager.Instance?.PlayPlayerHurt();
-        
         UpdateHealthUI();
 
         if (currentHealth <= 0)
@@ -267,12 +264,10 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Player has died in the Future.");
         
-        AudioManager.Instance?.PlayPlayerDeath();
-        
         lives--;
         uiManager.UpdateLives(lives);
 
-        if (lives <= 0)
+        if (lives <= 3)
         {
             GameOver();
         }
@@ -287,13 +282,13 @@ public class Player : MonoBehaviour
     {
         Debug.Log("Game Over! No lives left.");
         
-        // TODO: Show Death Menu
-        /*
-        if (DeathMenu.Instance != null)
+        // Register death and load death scene
+        if (lastEnemyThatHitMe != null)
         {
-            DeathMenu.Instance.ShowDeathMenu();
+            DeathData.RegisterDeath(lastEnemyThatHitMe, UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         }
-        */
+        
+        DeathData.LoadDeathScene();
         
         this.enabled = false;
     }
@@ -331,6 +326,14 @@ public class Player : MonoBehaviour
         UpdateHealthUI();
         Debug.Log($"Player healed {amount} HP. Current HP: {currentHealth}");
     }
+
+    /// <summary>
+    /// Called by enemies when they hit the player
+    /// </summary>
+    public void RegisterHitByEnemy(GameObject enemy)
+    {
+        lastEnemyThatHitMe = enemy;
+    }
     #endregion
 
     #region Debug
@@ -345,6 +348,9 @@ public class Player : MonoBehaviour
     
     public void PlayFootstepSound()
     {
-        AudioManager.Instance?.PlayPlayerFootstep();
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayPlayerFootstep();
+        }
     }
 }

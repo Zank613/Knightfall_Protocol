@@ -211,6 +211,7 @@ public class Samurai : MonoBehaviour
         {
             Debug.Log("<color=red>Samurai Side Attack Hit Player!</color>");
             player.GetComponent<Player>().TakeDamage(attackDamage);
+            player.GetComponent<Player>().RegisterHitByEnemy(gameObject);
         }
     }
 
@@ -227,6 +228,7 @@ public class Samurai : MonoBehaviour
         {
             Debug.Log("<color=red>Samurai Down Attack Hit Player!</color>");
             player.GetComponent<Player>().TakeDamage(attackDamage);
+            player.GetComponent<Player>().RegisterHitByEnemy(gameObject);
         }
     }
 
@@ -279,7 +281,7 @@ public class Samurai : MonoBehaviour
         
         AudioManager.Instance?.PlayBossDefeat();
         
-        // Play death animation (falling to knees)
+        // Play death animation
         animator.SetTrigger("Death");
         
         // Wait a moment for the animation to play
@@ -299,7 +301,7 @@ public class Samurai : MonoBehaviour
         // Notify game manager or trigger next event
         if (CinematicController.Instance != null)
         {
-            // CinematicController.Instance.OnSamuraiDefeated();
+            CinematicController.Instance.OnSamuraiDefeated();
         }
     }
     #endregion

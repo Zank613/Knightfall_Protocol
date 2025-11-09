@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-// FRESH SCRIPT. Call it Sickle_Tank.cs
 public class SickleTank : MonoBehaviour
 {
     [Header("Stats (Tank)")]
@@ -92,7 +91,7 @@ public class SickleTank : MonoBehaviour
         {
             if (hit.collider.CompareTag("Player"))
             {
-                //Debug.Log("Sickle_Tank: I see the player!", gameObject);
+                Debug.Log("Sickle_Tank: I see the player!", gameObject);
                 return true;
             }
         }
@@ -186,6 +185,12 @@ public class SickleTank : MonoBehaviour
         Debug.Log("Sickle_Tank: Is Dying.", gameObject);
         isDead = true;
         StartCoroutine(FadeOutEffect());
+        
+        if (EchoManager.Instance != null)
+        {
+            EchoManager.Instance.OnEnemyKilled(gameObject);
+        }
+        
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
         rb.gravityScale = 0;
@@ -243,6 +248,7 @@ public class SickleTank : MonoBehaviour
             
             // 2. Deal damage
             hitPlayer.GetComponent<Player>().TakeDamage(damage);
+            hitPlayer.GetComponent<Player>().RegisterHitByEnemy(gameObject);
             
             // 3. Apply Knockback
             Rigidbody2D playerRb = hitPlayer.GetComponent<Rigidbody2D>();

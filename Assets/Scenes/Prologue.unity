@@ -537,6 +537,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &103351815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103351816}
+  m_Layer: 3
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &103351816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103351815}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.9769998, y: 0.265, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1337831687}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &116721541
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,6 +601,7 @@ MonoBehaviour:
   enemiesToSpawn:
   - {fileID: 1638092157}
   destroyAfterTrigger: 1
+  SamuraiCinematic: 0
 --- !u!61 &116721543
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -694,7 +726,7 @@ RectTransform:
   m_GameObject: {fileID: 170551361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 335728779}
@@ -702,7 +734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 341.6, y: 245.8}
+  m_AnchoredPosition: {x: 579, y: 407}
   m_SizeDelta: {x: 700, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &170551363
@@ -981,8 +1013,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 27
+    m_Font: {fileID: 12800000, guid: cfcd0ddec0b860d41b76d3182299655a, type: 3}
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1342,8 +1374,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -8, y: 0}
+  m_SizeDelta: {x: 180, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &505910878
 MonoBehaviour:
@@ -1470,7 +1502,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.984195, y: 0.79743, z: -10}
+  m_LocalPosition: {x: -10.98322, y: 0.79743, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1508,6 +1540,53 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &519841325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 519841327}
+  - component: {fileID: 519841326}
+  m_Layer: 0
+  m_Name: SceneAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &519841326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519841325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea531feef1c1b9478f74100102b7284, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneAudioController
+  musicType: 2
+  ambianceType: 1
+  enableCombatMusicTrigger: 1
+--- !u!4 &519841327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519841325}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.3, y: 5.55593, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531352381
 GameObject:
   m_ObjectHideFlags: 0
@@ -4924,6 +5003,77 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1083236870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1083236872}
+  - component: {fileID: 1083236871}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1083236871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083236870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5ec177b27a81a4f9ff0e8127c19ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 0}
+  ambianceSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  playerFootstep: {fileID: 8300000, guid: 4df17b899cd59a44ebeea11fe76542ef, type: 3}
+  playerJump: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  playerLand: {fileID: 8300000, guid: 0525ec4429764724f92e02e39314e385, type: 3}
+  playerAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  playerHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  playerDeath: {fileID: 0}
+  enemyFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  enemyAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  enemyHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  enemyDeath: {fileID: 0}
+  bossFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  bossAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  bossHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  bossDefeat: {fileID: 0}
+  menuMusic: {fileID: 0}
+  ambianceMusic: {fileID: 8300000, guid: 8f0d66829a13ef54d8de647929997e85, type: 3}
+  combatMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  bossFightMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  cityAmbiance: {fileID: 0}
+  windAmbiance: {fileID: 0}
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  ambianceVolume: 0.5
+--- !u!4 &1083236872
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083236870}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.93261, y: 4.0241, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1180750634
 GameObject:
   m_ObjectHideFlags: 0
@@ -5767,6 +5917,7 @@ MonoBehaviour:
   moveSpeed: 2
   attackRange: 1.5
   attackCooldown: 3
+  attackDuration: 1
   introDialogue: VagabondIntro
   mockeryDialogue: VagabondMockery
   finisherDialogue: VagabondFinisher
@@ -6200,7 +6351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 222}
+  m_AnchoredPosition: {x: 0, y: 411}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1833589225
@@ -6264,11 +6415,13 @@ MonoBehaviour:
   player: {fileID: 1337831686}
   vagabond: {fileID: 1638092157}
   mage: {fileID: 1739978532}
+  samurai: {fileID: 0}
   mainCamera: {fileID: 519420031}
   playerCutscenePos: {fileID: 1779458594}
   druidCutscenePos: {fileID: 1607000151}
   vignetteImage: {fileID: 505910878}
   druidDialogueKey: DruidPrologueEnd
+  bossFightMusic: {fileID: 8300000, guid: 6c3bdfa3266955442bb1b7450d39b6d7, type: 3}
 --- !u!1 &1904739561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6714,10 +6867,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -7068,6 +7221,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2086859801}
     - target: {fileID: 4627809316279555331, guid: 8699d6d2077f36c45a6bf089e82404fc, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 103351816}
+    - target: {fileID: 4627809316279555331, guid: 8699d6d2077f36c45a6bf089e82404fc, type: 3}
       propertyPath: healthFiller
       value: 
       objectReference: {fileID: 170551363}
@@ -7081,7 +7238,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4051185887365774830, guid: 8699d6d2077f36c45a6bf089e82404fc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 103351816}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8699d6d2077f36c45a6bf089e82404fc, type: 3}
 --- !u!1660057539 &9223372036854775807
@@ -7100,3 +7260,5 @@ SceneRoots:
   - {fileID: 2086859800}
   - {fileID: 1296265427}
   - {fileID: 77770485}
+  - {fileID: 519841327}
+  - {fileID: 1083236872}

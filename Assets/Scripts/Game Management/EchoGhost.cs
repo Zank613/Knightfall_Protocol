@@ -29,13 +29,14 @@ public class EchoGhost : MonoBehaviour
     #endregion
 
     #region Initialization
-    public void Initialize(Transform playerTransform, EchoManager.EchoPowerLevel power)
+    public void Initialize(Transform playerTransform, EchoManager.EchoPowerLevel power, Sprite enemySprite, bool flipX)
     {
         player = playerTransform;
         powerLevel = power;
         lifetimeRemaining = power.duration;
         
         SetupComponents();
+        ApplyEnemySprite(enemySprite, flipX);
         StartCoroutine(LifetimeCountdown());
         
         Debug.Log($"<color=cyan>Ghost initialized: Speed={power.ghostSpeed}, Stun={power.stunDuration}s, Damage={power.damagePerHit}</color>");
@@ -51,20 +52,42 @@ public class EchoGhost : MonoBehaviour
 
         // Setup sprite
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        if (spriteRenderer == null)
         {
-            Color ghostColor = spriteRenderer.color;
-            ghostColor.a = 0.5f; // Semi-transparent
-            ghostColor = new Color(0.5f, 0.8f, 1f, 0.5f); // Cyan tint
-            spriteRenderer.color = ghostColor;
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         }
 
         // Setup collider as trigger
         ghostCollider = GetComponent<Collider2D>();
-        if (ghostCollider != null)
+        if (ghostCollider == null)
+        {
+            ghostCollider = gameObject.AddComponent<CircleCollider2D>();
+            ghostCollider.isTrigger = true;
+        }
+        else
         {
             ghostCollider.isTrigger = true;
         }
+    }
+
+    void ApplyEnemySprite(Sprite enemySprite, bool flipX)
+    {
+        if (spriteRenderer == null) return;
+
+        // Apply the killed enemy's sprite
+        if (enemySprite != null)
+        {
+            spriteRenderer.sprite = enemySprite;
+            spriteRenderer.flipX = flipX;
+        }
+
+        // Semi-transparent cyan tint
+        Color ghostColor = new Color(0.5f, 0.9f, 1f, 0.5f); // Cyan with 50% alpha
+        spriteRenderer.color = ghostColor;
+        
+        transform.localScale = new Vector3(2f, 2f, 1f);
+
+        Debug.Log("<color=cyan>Ghost: Applied enemy sprite and ghostly appearance</color>");
     }
     #endregion
 
@@ -172,7 +195,7 @@ public class EchoGhost : MonoBehaviour
         {
             // Chase the enemy
             Vector2 direction = (targetEnemy.position - transform.position).normalized;
-            rb.linearVelocity = direction * powerLevel.ghostSpeed * 1.5f; // Chase faster!
+            rb.linearVelocity = direction * powerLevel.ghostSpeed * 1.5f;
             
             // Face enemy
             if (spriteRenderer != null)
@@ -244,7 +267,7 @@ public class EchoGhost : MonoBehaviour
             enemyRb.linearVelocity = Vector2.zero;
         }
 
-        // Visual stun indicator (optional - change color)
+        // Visual stun indicator
         SpriteRenderer enemySprite = script.GetComponent<SpriteRenderer>();
         Color originalColor = Color.white;
         if (enemySprite != null)
