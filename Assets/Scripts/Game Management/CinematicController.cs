@@ -14,12 +14,6 @@ public class CinematicController : MonoBehaviour
     public static CinematicController Instance;
 
     #region Scene References
-    [Header("Characters")]
-    public GameObject player;
-    public GameObject vagabond;
-    public GameObject mage;
-    public GameObject samurai;
-
     [Header("Camera")]
     public Camera mainCamera;
     private Vector3 originalCameraPosition;
@@ -58,6 +52,7 @@ public class CinematicController : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -68,6 +63,11 @@ public class CinematicController : MonoBehaviour
 
     void Start()
     {
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
         // Store original camera state
         if (mainCamera != null)
         {
@@ -99,9 +99,18 @@ public class CinematicController : MonoBehaviour
         Debug.Log("=== VAGABOND INTRO CINEMATIC ===");
 
         // 1. Freeze Player
-        Player playerScript = player.GetComponent<Player>();
+        Player playerScript = FindObjectOfType<Player>(); 
+        if (playerScript == null)
+        {
+            Debug.LogError("Vagabond Intro: Could not find Player!");
+            yield break;
+        }
+        
+        Rigidbody2D playerRb = playerScript.GetComponent<Rigidbody2D>();
+        playerRb.isKinematic = true; 
+        playerRb.linearVelocity = Vector2.zero;
+        
         playerScript.enabled = false;
-        playerScript.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
         playerScript.GetComponent<Animator>().SetFloat("Move", 0);
 
         // 2. Freeze Vagabond
@@ -139,6 +148,7 @@ public class CinematicController : MonoBehaviour
 
         // 6. Unfreeze everyone - FIGHT BEGINS
         playerScript.enabled = true;
+        playerRb.isKinematic = false;
         vagabondScript.UnpauseFromCutscene();
 
         Debug.Log("Vagabond intro complete - impossible boss fight begins!");
@@ -157,36 +167,44 @@ public class CinematicController : MonoBehaviour
     {
         Debug.Log("=== PROLOGUE ENDING CINEMATIC ===");
 
-        // 1. Freeze Player COMPLETELY
-        Player playerScript = player.GetComponent<Player>();
-        Animator playerAnimator = player.GetComponent<Animator>();
-        Rigidbody2D playerRb = player.GetComponent<Rigidbody2D>();
+        // --- CHARACTER FIND FIX: Find all characters at runtime ---
+        Player playerScript = FindObjectOfType<Player>();
+        if (playerScript == null) Debug.LogError("Prologue End: Could not find Player!");
         
+        Mage mageScript = FindObjectOfType<Mage>(); 
+        if (mageScript == null) Debug.LogWarning("Prologue End: Could not find Mage!");
+        
+        Vagabond vagabondScript = FindObjectOfType<Vagabond>(); 
+        if (vagabondScript == null) Debug.LogWarning("Prologue End: Could not find Vagabond!");
+        
+        // --- End of Fix ---
+
+        // 1. Freeze Player COMPLETELY
+        Animator playerAnimator = null;
         if (playerScript != null)
         {
+            playerAnimator = playerScript.GetComponent<Animator>();
+            Rigidbody2D playerRb = playerScript.GetComponent<Rigidbody2D>();
+            
             playerScript.enabled = false;
-        }
-        
-        if (playerRb != null)
-        {
-            playerRb.linearVelocity = Vector2.zero;
-        }
-        
-        if (playerAnimator != null)
-        {
-            // Stop ALL movement animations
-            playerAnimator.SetFloat("Move", 0);
-            playerAnimator.SetBool("IsWalking", false);
+            
+            if (playerRb != null)
+            {
+                playerRb.linearVelocity = Vector2.zero;
+                playerRb.isKinematic = true;
+            }
+            
+            if (playerAnimator != null)
+            {
+                // Stop ALL movement animations
+                playerAnimator.SetFloat("Move", 0);
+            }
         }
 
         // 2. Freeze Vagabond if still active
-        if (vagabond != null && vagabond.activeInHierarchy)
+        if (vagabondScript != null && vagabondScript.gameObject.activeInHierarchy)
         {
-            Vagabond vagabondScript = vagabond.GetComponent<Vagabond>();
-            if (vagabondScript != null)
-            {
-                vagabondScript.PauseForCutscene();
-            }
+            vagabondScript.PauseForCutscene();
         }
 
         // 3. Fade to black effect
@@ -199,26 +217,26 @@ public class CinematicController : MonoBehaviour
         }
 
         // 5. Despawn Vagabond
-        if (vagabond != null)
+        if (vagabondScript != null)
         {
-            vagabond.SetActive(false);
+            vagabondScript.gameObject.SetActive(false);
         }
 
         // 6. Spawn Mage
-        if (mage != null)
+        if (mageScript != null)
         {
-            mage.SetActive(true);
+            mageScript.gameObject.SetActive(true);
         }
 
         // 7. Teleport characters to cutscene positions
-        if (player != null && playerCutscenePos != null)
+        if (playerScript != null && playerCutscenePos != null)
         {
-            player.transform.position = playerCutscenePos.position;
+            playerScript.transform.position = playerCutscenePos.position;
         }
 
-        if (mage != null && druidCutscenePos != null)
+        if (mageScript != null && druidCutscenePos != null)
         {
-            mage.transform.position = druidCutscenePos.position;
+            mageScript.transform.position = druidCutscenePos.position;
         }
 
         // 8. Force player to face RIGHT
@@ -249,13 +267,17 @@ public class CinematicController : MonoBehaviour
 
         // 11. Mage delivers final dialogue
         bool dialogueComplete = false;
-        if (mage != null)
+        if (mageScript != null)
         {
             DialogueManager.SimplePopUp(
-                mage.transform, 
+                mageScript.transform, 
                 druidDialogueKey, 
                 () => { dialogueComplete = true; }
             );
+        }
+        else
+        {
+            dialogueComplete = true; // Skip if no mage
         }
 
         // Wait for dialogue to complete
@@ -303,8 +325,8 @@ public class CinematicController : MonoBehaviour
         }
 
         // 2. Get references
-        Player playerScript = player.GetComponent<Player>();
-        Samurai samuraiScript = samurai.GetComponent<Samurai>();
+        Player playerScript = FindObjectOfType<Player>(); 
+        Samurai samuraiScript = FindObjectOfType<Samurai>(); 
 
         if (playerScript == null || samuraiScript == null)
         {
@@ -313,8 +335,10 @@ public class CinematicController : MonoBehaviour
         }
 
         // 3. Freeze Player
+        Rigidbody2D playerRb = playerScript.GetComponent<Rigidbody2D>();
         playerScript.enabled = false;
-        playerScript.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
+        playerRb.linearVelocity = Vector2.zero;
+        playerRb.isKinematic = true;
         playerScript.GetComponent<Animator>().SetFloat("Move", 0);
 
         Debug.Log("=== WAITING FOR SAMURAI TO FALL ===");
@@ -389,6 +413,7 @@ public class CinematicController : MonoBehaviour
 
         // 10. UNFREEZE EVERYTHING - FIGHT BEGINS!
         playerScript.enabled = true;
+        playerRb.isKinematic = false;
         samuraiScript.UnfreezeAndStartFight();
 
         Debug.Log("<color=cyan>=== BOSS FIGHT STARTED ===</color>");

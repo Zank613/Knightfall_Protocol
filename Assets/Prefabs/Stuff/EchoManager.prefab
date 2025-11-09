@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7899615831727637018
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2954238290524563884}
+  - component: {fileID: 6179829164341353490}
+  m_Layer: 0
+  m_Name: EchoManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2954238290524563884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899615831727637018}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.23624, y: 5.24814, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6179829164341353490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7899615831727637018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e9d0a2948f045c4c914a8685d33cdc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EchoManager
+  echoPickupPrefab: {fileID: 5827440172071971221, guid: 4108aec2e6564634ebec2da1c2be954c, type: 3}
+  dropChance: 1
+  echoGhostPrefab: {fileID: 4022350255228870939, guid: c8ed473b049a3cb4aac146141b4a13a0, type: 3}
+  player: {fileID: 0}
+  echoChargeText: {fileID: 0}
+  echoIcon: {fileID: 0}
+  powerLevels:
+  - lives: 9
+    ghostCount: 1
+    ghostSpeed: 3
+    stunDuration: 1.5
+    damagePerHit: 0
+    duration: 10
+  - lives: 8
+    ghostCount: 1
+    ghostSpeed: 4
+    stunDuration: 1.5
+    damagePerHit: 0
+    duration: 10
+  - lives: 7
+    ghostCount: 1
+    ghostSpeed: 4
+    stunDuration: 2
+    damagePerHit: 0
+    duration: 10
+  - lives: 6
+    ghostCount: 1
+    ghostSpeed: 4
+    stunDuration: 2
+    damagePerHit: 1
+    duration: 10
+  - lives: 5
+    ghostCount: 2
+    ghostSpeed: 4
+    stunDuration: 2
+    damagePerHit: 1
+    duration: 12
+  - lives: 4
+    ghostCount: 2
+    ghostSpeed: 5
+    stunDuration: 2.5
+    damagePerHit: 1
+    duration: 12
+  - lives: 3
+    ghostCount: 3
+    ghostSpeed: 5
+    stunDuration: 2.5
+    damagePerHit: 2
+    duration: 15
+  - lives: 2
+    ghostCount: 3
+    ghostSpeed: 6
+    stunDuration: 3
+    damagePerHit: 2
+    duration: 15
+  - lives: 1
+    ghostCount: 4
+    ghostSpeed: 6
+    stunDuration: 3.5
+    damagePerHit: 3
+    duration: 20

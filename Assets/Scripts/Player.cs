@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
     #region Unity Lifecycle
     void Start()
     {
+        uiManager = FindObjectOfType<UIManager>();
         InitializeComponents();
         InitializeHealth();
         InitializeUI();

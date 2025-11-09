@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3988820052692635016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3385592784178779622}
+  - component: {fileID: 8735535442150311633}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3385592784178779622
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988820052692635016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.93261, y: 4.0241, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8735535442150311633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988820052692635016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5ec177b27a81a4f9ff0e8127c19ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 0}
+  ambianceSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  playerFootstep: {fileID: 8300000, guid: 4df17b899cd59a44ebeea11fe76542ef, type: 3}
+  playerJump: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  playerLand: {fileID: 8300000, guid: 0525ec4429764724f92e02e39314e385, type: 3}
+  playerAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  playerHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  playerDeath: {fileID: 0}
+  enemyFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  enemyAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  enemyHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  enemyDeath: {fileID: 0}
+  bossFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  bossAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  bossHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  bossDefeat: {fileID: 0}
+  menuMusic: {fileID: 0}
+  ambianceMusic: {fileID: 8300000, guid: 8f0d66829a13ef54d8de647929997e85, type: 3}
+  combatMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  bossFightMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  cityAmbiance: {fileID: 0}
+  windAmbiance: {fileID: 0}
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  ambianceVolume: 0.5

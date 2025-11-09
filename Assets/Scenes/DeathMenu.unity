@@ -346,6 +346,77 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &410108381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410108383}
+  - component: {fileID: 410108382}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &410108382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410108381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a5ec177b27a81a4f9ff0e8127c19ccc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  musicSource: {fileID: 0}
+  ambianceSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  playerFootstep: {fileID: 8300000, guid: 4df17b899cd59a44ebeea11fe76542ef, type: 3}
+  playerJump: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  playerLand: {fileID: 8300000, guid: 0525ec4429764724f92e02e39314e385, type: 3}
+  playerAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  playerHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  playerDeath: {fileID: 0}
+  enemyFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  enemyAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  enemyHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  enemyDeath: {fileID: 0}
+  bossFootstep: {fileID: 8300000, guid: a2fb525976e72dc47a83cbb2dce17173, type: 3}
+  bossAttack: {fileID: 8300000, guid: 88bc9fd45d1a77741a63f4b75bbab823, type: 3}
+  bossHurt: {fileID: 8300000, guid: f23fb5851dc90cf41a42e855ea38c3d4, type: 3}
+  bossDefeat: {fileID: 0}
+  menuMusic: {fileID: 0}
+  ambianceMusic: {fileID: 8300000, guid: 8f0d66829a13ef54d8de647929997e85, type: 3}
+  combatMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  bossFightMusic: {fileID: 8300000, guid: 2c7cb937e6726b545bc69275d629959e, type: 3}
+  cityAmbiance: {fileID: 0}
+  windAmbiance: {fileID: 0}
+  masterVolume: 1
+  musicVolume: 0.7
+  sfxVolume: 1
+  ambianceVolume: 0.5
+--- !u!4 &410108383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410108381}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.93261, y: 4.0241, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &793280535
 GameObject:
   m_ObjectHideFlags: 0
@@ -1235,7 +1306,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856966277}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a5ec177b27a81a4f9ff0e8127c19ccc, type: 3}
   m_Name: 
@@ -1279,16 +1350,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d21692e1c50c546a82626fa6cb8bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CinematicController
-  player: {fileID: 0}
-  vagabond: {fileID: 0}
-  mage: {fileID: 0}
-  mainCamera: {fileID: 0}
-  samurai: {fileID: 0}
-  bossFightMusic: {fileID: 8300000, guid: 6c3bdfa3266955442bb1b7450d39b6d7, type: 3}
+  vagabond: {fileID: 3639146669368735632, guid: 926f31389cb80524bae4f3680daab5fd, type: 3}
+  mage: {fileID: 1300564013631103277, guid: c1a5905cc397ac34ea2841dfb7ab6856, type: 3}
+  samurai: {fileID: 2556768417731429307, guid: e6d809788733da14490c189c55bdafb6, type: 3}
+  mainCamera: {fileID: 8660786155258896393, guid: 712f9990681e9da43936aac1763e7afc, type: 3}
   playerCutscenePos: {fileID: 0}
   druidCutscenePos: {fileID: 0}
-  vignetteImage: {fileID: 0}
+  vignetteImage: {fileID: 8432914892433173122, guid: bfe7d127106a57c4f940f8e4a6eb5d5a, type: 3}
   druidDialogueKey: DruidPrologueEnd
+  bossFightMusic: {fileID: 8300000, guid: 6c3bdfa3266955442bb1b7450d39b6d7, type: 3}
 --- !u!114 &1856966280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,3 +1397,4 @@ SceneRoots:
   - {fileID: 1629795823}
   - {fileID: 1234909011}
   - {fileID: 1856966281}
+  - {fileID: 410108383}
