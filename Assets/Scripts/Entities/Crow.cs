@@ -150,6 +150,9 @@ public class Crow : MonoBehaviour
         isAttacking = true;
         nextAttackTime = Time.time + attackCooldown;
         StopMoving(); // Stop moving to perform the attack
+        
+        AudioManager.Instance?.PlayEnemyAttack();
+        
         animator.SetTrigger("Attack");
         
         yield return null;
@@ -163,6 +166,9 @@ public class Crow : MonoBehaviour
 
         currentHealth -= damage;
         animator.SetTrigger("TakeDamage");
+        Debug.Log($"Crow taken damage: {damage}");
+        
+        AudioManager.Instance?.PlayEnemyHurt();
 
         if (currentHealth <= 0)
         {
@@ -173,6 +179,9 @@ public class Crow : MonoBehaviour
     void Die()
     {
         isDead = true;
+        
+        AudioManager.Instance?.PlayEnemyDeath();
+        
         animator.SetTrigger("Death");
         rb.linearVelocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false; // Disable collider so player can walk through
@@ -204,4 +213,10 @@ public class Crow : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
+    
+    public void PlayEnemyFootstepSound()
+    {
+        AudioManager.Instance?.PlayEnemyFootstep();
+    }
+
 }

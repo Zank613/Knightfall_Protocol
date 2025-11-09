@@ -1,3 +1,4 @@
+using System.Text;
 using UnityEngine;
 
 public class SpawnTrigger : MonoBehaviour
@@ -8,6 +9,8 @@ public class SpawnTrigger : MonoBehaviour
 
     private bool hasTriggered = false;
 
+    public bool SamuraiCinematic = false;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         // Check for Player tag and ensure it only happens once
@@ -15,6 +18,11 @@ public class SpawnTrigger : MonoBehaviour
         {
             hasTriggered = true;
             SpawnAllEntities();
+        }
+
+        if (other.CompareTag("Player") && SamuraiCinematic)
+        {
+            CinematicController.Instance.StartSamuraiBossCinematic();
         }
     }
 
